@@ -8,9 +8,10 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:new_todo/shared/cubits/task_cubit/image/imageCubit.dart';
 import 'package:new_todo/shared/cubits/task_cubit/image/image_state.dart';
 import 'package:new_todo/shared/cubits/task_cubit/task/taskCubit.dart';
-import 'package:new_todo/shared/widgets/dropDownMenu.dart';
+import 'package:new_todo/widgets/dropDownMenu.dart';
 import 'package:phone_form_field/phone_form_field.dart';
-import 'package:http/http.dart' as http;
+
+import '../../widgets/network_images_handler.dart';
 
 Widget defaultButton({
   double? fontSize,
@@ -51,7 +52,6 @@ Widget defaultButton({
     ),
   );
 }
-
 
 Widget phoneFormField(BuildContext context,PhoneController thePhoneController) {
   return PhoneFormField(
@@ -115,6 +115,7 @@ Widget phoneFormField(BuildContext context,PhoneController thePhoneController) {
     ),
   );
 }
+
 Widget defaultFormField({
   required String text,
   required Function? validate,
@@ -143,7 +144,6 @@ Widget defaultFormField({
     width: myWidth,
     padding: EdgeInsets.zero,
     child: TextFormField(
-      // textDirection: isEnglish ? TextDirection.ltr : TextDirection.rtl,
       validator: validate ?? validate!(),
       controller: myController,
       obscureText: isPassField,
@@ -221,41 +221,30 @@ Widget defaultFormField({
     ),
   );
 }
+
 String formatDate(String dateString) {
   DateTime dateTime = DateFormat('yyyy-MM-dd').parse(dateString);
   return DateFormat('d MMMM, yyyy').format(dateTime);
 }
-String convertDateFormat(String date) {
-  // Split the date string into parts
-  List<String> parts = date.split('-');
 
-  // Rearrange the parts into the desired format
+String convertDateFormat(String date) {
+
+  List<String> parts = date.split('-');
   String formattedDate = '${parts[2]}/${int.parse(parts[1])}/${parts[0]}';
 
   return formattedDate;
 }
+
 String formatPhoneNumber(String phoneNumber) {
-  // Extract the country code and the rest of the number
+
   String countryCode = phoneNumber.substring(0, 3);
   String restOfNumber = phoneNumber.substring(3);
 
-  // Format the rest of the number
   String formattedNumber = restOfNumber.replaceAllMapped(
     RegExp(r'(\d{3})(\d{3})(\d{4})'),
         (Match m) => '${m[1]} ${m[2]}-${m[3]}',
   );
-
-  // Combine the country code with the formatted number
   return '$countryCode $formattedNumber';
-}
-// Function to check if the image exists
-Future<bool> _checkImageExists(String url) async {
-  try {
-    final response = await http.head(Uri.parse(url));
-    return response.statusCode == 200;
-  } catch (e) {
-    return false;
-  }
 }
 
 Widget defaultTaskBuilder({
@@ -282,9 +271,8 @@ Widget defaultTaskBuilder({
     height: 120,
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
-      // mainAxisSize: ,
       children: [
-    NetworkImageHandler(
+        NetworkImageHandler(
       imgUrl: 'https://todo.iraqsapp.com/images/$imgUrl',
       onErrAsset: 'assets/images/img.png',
     ),
@@ -461,135 +449,9 @@ Widget defaultTaskBuilder({
           ],
           ),
         ),
-        // PopupMenuButton<String>(
-        //   onSelected: (String result) {
-        //     switch (result) {
-        //       case 'Open':
-        //         onTabFunc();
-        //         break;
-        //       case 'Delete':
-        //         TaskCubit.get(context).deleteTask(id: id);
-        //         break;
-        //     }
-        //   },
-        //   icon: Icon(
-        //     Icons.more_vert,
-        //     size: isDesktop?
-        //     myHeight*0.01+myWidth*0.03
-        //         :myHeight*0.02+myWidth*0.07,),
-        //   itemBuilder:  (BuildContext context) => <PopupMenuEntry<String>>[
-        //     PopupMenuItem<String>(
-        //       value: 'Open',
-        //       child: ListTile(
-        //         leading: Icon(
-        //           Icons.edit,
-        //           color: Colors.black,
-        //           size: isDesktop? myHeight*0.01+myWidth*0.025:
-        //           20,),
-        //         title: Text(
-        //           'Open',
-        //           style:  GoogleFonts.dmSans(
-        //             fontSize:(fontSize-2),
-        //             // color: HexColor('#BABABA'),
-        //             fontWeight: FontWeight.w500,
-        //             textStyle: const TextStyle(
-        //               overflow: TextOverflow.ellipsis,
-        //             ),
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //     PopupMenuItem<String>(
-        //       value: 'Delete',
-        //       child: ListTile(
-        //         leading: Icon(Icons.delete,
-        //           color: Colors.red,
-        //           size: isDesktop? myHeight*0.01+myWidth*0.025:
-        //           20,),
-        //         title: Text(
-        //           'Delete',
-        //           style: GoogleFonts.dmSans(
-        //             fontSize:(fontSize-2),
-        //             color:  HexColor('#FF7D53'),
-        //             fontWeight: FontWeight.bold,
-        //             textStyle: const TextStyle(
-        //               overflow: TextOverflow.ellipsis,
-        //             ),
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //   ],
-        // ),
       ],
     ),
   );
-}
-
-class NetworkImageHandler extends StatelessWidget {
-
-  final String imgUrl;
-  final String onErrAsset;
-  const NetworkImageHandler({
-    super.key,
-    required this.imgUrl,
-    required this.onErrAsset,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-    future: _checkImageExists(imgUrl),
-    builder: (context, snapshot) {
-      if (snapshot.connectionState == ConnectionState.done) {
-        if (snapshot.hasError || !snapshot.hasData || !snapshot.data!) {
-          return SizedBox(
-            width:100,
-            child: Center(
-              child: CircleAvatar(
-                radius: 35,
-                backgroundColor: Colors.white,
-                child: Image.asset(onErrAsset),
-              ),
-            ),
-          );
-        }
-        return SizedBox(
-          width: 100,
-          child: Center(
-            child: CircleAvatar(
-              radius: 35,
-              backgroundColor: Colors.white,
-              backgroundImage: NetworkImage(imgUrl),
-            ),
-          ),
-        );
-      } else {
-        return const SizedBox(
-          width: 100,
-          child: Center(
-            child: CircleAvatar(
-              radius: 35,
-              backgroundColor: Colors.white,
-              child: CircularProgressIndicator(),
-            ),
-          ),
-        );
-      }
-    },
-      );
-  }
-}
-
-ImageProvider<Object> networkImage(String imgUrl) {
-  try{
-    return Image.network('https://todo.iraqsapp.com/images/$imgUrl',
-    errorBuilder: (context, error, stackTrace) {
-      return Image.asset('assets/images/img.png');
-    },).image;
-  }catch(e){
-    return Image.asset('assets/images/img.png').image;
-  }
 }
 
 void navigateAndFinish({required context, required widget}) =>
@@ -640,6 +502,7 @@ Future<String?> showDialogMsg(context){
     ),
   );
 }
+
 SizedBox defaultDatePicker({
   required double myWidth,
   required double myHeight,
@@ -711,7 +574,6 @@ SizedBox defaultDatePicker({
   );
 }
 
-//
 Widget defaultDropDownMenu({
   required List<String> list,
   String? dropdownValue,

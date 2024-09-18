@@ -36,31 +36,3 @@ ThemeData lightTheme = ThemeData(
     type: BottomNavigationBarType.fixed,
   ),
 );
-
-ThemeData darkTheme = ThemeData(
-  appBarTheme:   AppBarTheme(
-    backgroundColor: backgroundDark,
-    elevation: 0,
-    titleTextStyle: const TextStyle(
-        fontSize: 16,
-        color: onBackgroundDark,
-        fontWeight: FontWeight.w600,
-        fontStyle: FontStyle.italic
-    ),
-    actionsIconTheme: const IconThemeData(
-      color: onBackgroundDark,
-    ),
-  ),
-  primarySwatch: secondaryDark,
-  colorScheme:const ColorScheme.dark(),
-  scaffoldBackgroundColor: backgroundDark,
-
-  bottomNavigationBarTheme:  BottomNavigationBarThemeData(
-    backgroundColor: surfaceDark,
-    elevation: 20,
-    selectedItemColor: primaryDark,
-    unselectedItemColor:onSecondaryDark,
-    showUnselectedLabels: true,
-    type: BottomNavigationBarType.fixed,
-  ),
-);

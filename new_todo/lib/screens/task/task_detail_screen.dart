@@ -15,7 +15,7 @@ import '../../shared/components/components.dart';
 import '../../shared/cubits/task_cubit/image/imageCubit.dart';
 import '../../shared/cubits/task_cubit/image/image_state.dart';
 import '../../shared/cubits/task_cubit/task/taskCubit.dart';
-import '../../shared/widgets/dropDownMenu.dart';
+import '../../widgets/dropDownMenu.dart';
 
 class TaskDetailScreen extends StatefulWidget {
   final Task task;
