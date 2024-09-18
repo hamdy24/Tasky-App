@@ -1,8 +1,8 @@
 import 'dart:convert';
-import '../models/task.dart';
+import '../../domain/models/task.dart';
+import '../../presentation/task_cubit/authentication/authenticationCubit.dart';
 import 'package:http/http.dart' as http;
 
-import '../shared/cubits/task_cubit/authentication/authenticationCubit.dart';
 
 class TaskRepository {
 

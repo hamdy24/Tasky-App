@@ -5,10 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:new_todo/shared/components/components.dart';
 import 'package:phone_form_field/phone_form_field.dart';
-import '../../shared/cubits/task_cubit/authentication/authenticationCubit.dart';
-import '../../shared/cubits/task_cubit/authentication/authentication_state.dart';
-import '../../shared/cubits/task_cubit/task/taskCubit.dart';
-import '../../shared/network/local/cache_helper.dart';
+import '../../../data/data_sources/cache_helper.dart';
+import '../../task_cubit/authentication/authenticationCubit.dart';
+import '../../task_cubit/authentication/authentication_state.dart';
+import '../../task_cubit/task/taskCubit.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

@@ -1,10 +1,7 @@
 import 'dart:io';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:new_todo/repositories/image_repository.dart';
-import '../../../components/components.dart';
+import '../../../data/repositories/image_repository.dart';
 import 'image_state.dart';
 
 class ImageCubit extends Cubit<ImageState> {

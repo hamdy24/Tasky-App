@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:new_todo/widgets/task_card.dart';
+import 'package:new_todo/presentation/widgets/task_card.dart';
 
-import '../models/task.dart';
+import '../../domain/models/task.dart';
 
 class ListBodyScreen extends StatelessWidget{
   final List<Task> tasks;

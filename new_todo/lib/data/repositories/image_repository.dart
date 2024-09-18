@@ -4,7 +4,7 @@ import 'package:mime/mime.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:http/http.dart' as http;
 
-import '../shared/cubits/task_cubit/authentication/authenticationCubit.dart';
+import '../../presentation/task_cubit/authentication/authenticationCubit.dart';
 
 
 class ImageRepository{

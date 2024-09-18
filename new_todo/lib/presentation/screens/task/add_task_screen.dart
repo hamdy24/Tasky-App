@@ -9,11 +9,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
-import '../../models/task.dart';
-import '../../shared/components/components.dart';
-import '../../shared/cubits/task_cubit/image/imageCubit.dart';
-import '../../shared/cubits/task_cubit/image/image_state.dart';
-import '../../shared/cubits/task_cubit/task/taskCubit.dart';
+import '../../../domain/models/task.dart';
+import '../../../shared/components/components.dart';
+import '../../task_cubit/image/imageCubit.dart';
+import '../../task_cubit/image/image_state.dart';
+import '../../task_cubit/task/taskCubit.dart';
 
 class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({super.key});

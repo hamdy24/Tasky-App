@@ -1,16 +1,12 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:intl_phone_field/country_picker_dialog.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:new_todo/models/user.dart';
-import 'package:new_todo/shared/cubits/task_cubit/authentication/authenticationCubit.dart';
-import 'package:new_todo/shared/cubits/task_cubit/authentication/authentication_state.dart';
 import 'package:phone_form_field/phone_form_field.dart';
-import '../../shared/components/components.dart';
+import '../../../domain/models/user.dart';
+import '../../../shared/components/components.dart';
+import '../../task_cubit/authentication/authenticationCubit.dart';
+import '../../task_cubit/authentication/authentication_state.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -26,7 +22,6 @@ class SignUpScreenState extends State<SignUpScreen> {
   final _experienceController = TextEditingController();
   final _addressController = TextEditingController();
   final _passwordController = TextEditingController();
-  String _countryCode = '+20';
   String level = 'fresh';
 
   String completePhone = '';

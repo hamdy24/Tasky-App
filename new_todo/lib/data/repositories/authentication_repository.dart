@@ -1,10 +1,11 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:new_todo/shared/cubits/task_cubit/authentication/authenticationCubit.dart';
-import 'package:new_todo/shared/network/local/cache_helper.dart';
+import 'package:new_todo/data/data_sources/cache_helper.dart';
 
-import '../models/user.dart';
+import '../../domain/models/user.dart';
+import '../../presentation/task_cubit/authentication/authenticationCubit.dart';
+
 
 
 class AuthenticationRepository {

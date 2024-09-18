@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:new_todo/repositories/image_repository.dart';
-import '../../../../models/task.dart';
-import '../../../../repositories/task_repository.dart';
-import '../../../../widgets/list_body.dart';
+import '../../../data/repositories/image_repository.dart';
+import '../../../data/repositories/task_repository.dart';
+import '../../../domain/models/task.dart';
+import '../../widgets/list_body.dart';
 import 'task_state.dart';
 
 class TaskCubit extends Cubit<TaskState> {

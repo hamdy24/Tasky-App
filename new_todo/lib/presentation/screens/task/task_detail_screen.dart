@@ -8,13 +8,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:new_todo/shared/cubits/task_cubit/task/task_state.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import '../../models/task.dart';
-import '../../shared/components/components.dart';
-import '../../shared/cubits/task_cubit/image/imageCubit.dart';
-import '../../shared/cubits/task_cubit/image/image_state.dart';
-import '../../shared/cubits/task_cubit/task/taskCubit.dart';
+import '../../../domain/models/task.dart';
+import '../../../shared/components/components.dart';
+import '../../task_cubit/image/imageCubit.dart';
+import '../../task_cubit/image/image_state.dart';
+import '../../task_cubit/task/taskCubit.dart';
+import '../../task_cubit/task/task_state.dart';
 import '../../widgets/dropDownMenu.dart';
 
 class TaskDetailScreen extends StatefulWidget {
@@ -702,71 +702,6 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                 ],
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.only(right: 10.0),
-            //   child: PopupMenuButton<String>(
-            //     position: PopupMenuPosition.under,
-            //     shape: _CustomDropdownShape(),
-            //     onSelected: (String result) {
-            //       switch (result) {
-            //         case 1:
-            //
-            //           break;
-            //         case 2:
-            //           break;
-            //       }
-            //     },
-            //     icon: const Icon(Icons.more_vert),
-            //     itemBuilder:
-            //     //     (BuildContext context) {
-            //     //   return List<PopupMenuEntry<int>>.generate(
-            //     //     2,
-            //     //         (int index) => PopupMenuItem<int>(
-            //     //       value: index,
-            //     //       child: Column(
-            //     //         crossAxisAlignment: CrossAxisAlignment.start,
-            //     //         children: [
-            //     //           Text(
-            //     //             'Edit$index',
-            //     //             style: TextStyle(color: Colors.black),
-            //     //           ),
-            //     //           if (index != 1)
-            //     //             Divider() // Divider between items
-            //     //         ],
-            //     //       ),
-            //     //     ),
-            //     //   );
-            //     // },
-            //         (BuildContext context) => <PopupMenuEntry<String>>[
-            //       PopupMenuItem<String>(
-            //         value: 'edit',
-            //         child: ListTile(
-            //           // leading: Icon(Icons.edit, color: Colors.black,size: fontSize+4,),
-            //           title: Text(TaskCubit.enableUpdate? 'Save': 'Edit',
-            //               style:  GoogleFonts.dmSans(
-            //                 fontSize: 16,
-            //                 fontWeight: FontWeight.w500,
-            //                 // color: HexColor('#5F33E1')
-            //               )
-            //           ),
-            //         ),
-            //       ),
-            //
-            //       PopupMenuItem<String>(
-            //         value: 'delete',
-            //         child: ListTile(
-            //           // leading: Icon(Icons.delete, color: Colors.red,size: fontSize+4,),
-            //           title: Text('Delete',style: GoogleFonts.dmSans(
-            //               fontSize: 16,
-            //               fontWeight: FontWeight.w500,
-            //               color: HexColor('#FF7D53')
-            //           )
-            //           ),
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
           ],
         ),
         body: Padding(

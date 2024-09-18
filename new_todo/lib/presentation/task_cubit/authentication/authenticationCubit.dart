@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../models/user.dart';
-import '../../../../repositories/authentication_repository.dart';
-import '../../../network/local/cache_helper.dart';
+import '../../../data/repositories/authentication_repository.dart';
+import '../../../domain/models/user.dart';
+import '../../../data/data_sources/cache_helper.dart';
 import 'authentication_state.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {

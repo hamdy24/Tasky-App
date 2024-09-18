@@ -4,13 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:new_todo/screens/user/login_screen.dart';
 import 'package:new_todo/shared/components/components.dart';
-import 'package:new_todo/shared/cubits/task_cubit/authentication/authenticationCubit.dart';
-import '../../models/task.dart';
-import '../../shared/cubits/task_cubit/task/taskCubit.dart';
-import '../../shared/cubits/task_cubit/task/task_state.dart';
+import '../../../domain/models/task.dart';
+import '../../task_cubit/authentication/authenticationCubit.dart';
+import '../../task_cubit/task/taskCubit.dart';
+import '../../task_cubit/task/task_state.dart';
 import '../../widgets/task_card.dart';
+import '../user/login_screen.dart';
 
 class TaskListScreen extends StatelessWidget {
   const TaskListScreen({super.key});

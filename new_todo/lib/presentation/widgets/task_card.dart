@@ -1,7 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
-import '../../models/task.dart';
-import '../shared/components/components.dart';
+import '../../domain/models/task.dart';
+import '../../shared/components/components.dart';
 
 class TaskCard extends StatelessWidget {
   final Task task;

@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:new_todo/screens/user/login_screen.dart';
-import 'package:new_todo/shared/components/components.dart';
-import 'package:new_todo/shared/network/local/cache_helper.dart';
+import 'package:new_todo/presentation/screens/user/login_screen.dart';
+import 'package:new_todo/data/data_sources/cache_helper.dart';
 
 class OnBoarding extends StatelessWidget{
   const OnBoarding({super.key});

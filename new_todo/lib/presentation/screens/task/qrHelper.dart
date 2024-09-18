@@ -3,10 +3,8 @@ import 'dart:io';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:new_todo/shared/cubits/task_cubit/task/taskCubit.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-
-import '../../models/task.dart';
+import '../../task_cubit/task/taskCubit.dart';
 
 class QRScannerHome extends StatefulWidget {
   const QRScannerHome({super.key});

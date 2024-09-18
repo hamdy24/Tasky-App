@@ -7,10 +7,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:new_todo/shared/cubits/task_cubit/authentication/authentication_state.dart';
-import '../../models/user.dart';
-import '../../shared/components/components.dart';
-import '../../shared/cubits/task_cubit/authentication/authenticationCubit.dart';
+import '../../../domain/models/user.dart';
+import '../../../shared/components/components.dart';
+import '../../task_cubit/authentication/authenticationCubit.dart';
+import '../../task_cubit/authentication/authentication_state.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

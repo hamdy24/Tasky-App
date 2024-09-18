@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:new_todo/screens/onBoarding.dart';
-import 'package:new_todo/screens/task/qrHelper.dart';
-import 'package:new_todo/shared/cubits/task_cubit/authentication/authenticationCubit.dart';
-import 'package:new_todo/shared/cubits/task_cubit/image/imageCubit.dart';
-import 'package:new_todo/shared/cubits/task_cubit/task/taskCubit.dart';
-import 'package:new_todo/shared/network/local/cache_helper.dart';
-import 'package:new_todo/shared/styles/themes.dart';
-import 'models/task.dart';
-import 'screens/task/task_list_screen.dart';
-import 'screens/task/task_detail_screen.dart';
-import 'screens/task/add_task_screen.dart';
-import 'screens/user/login_screen.dart';
-import 'screens/user/signup_screen.dart';
-import 'screens/user/profile_screen.dart';
+import 'package:new_todo/data/data_sources/cache_helper.dart';
+import 'package:new_todo/presentation/screens/onBoarding.dart';
+import 'package:new_todo/presentation/screens/task/add_task_screen.dart';
+import 'package:new_todo/presentation/screens/task/qrHelper.dart';
+import 'package:new_todo/presentation/screens/task/task_detail_screen.dart';
+import 'package:new_todo/presentation/screens/task/task_list_screen.dart';
+import 'package:new_todo/presentation/screens/user/login_screen.dart';
+import 'package:new_todo/presentation/screens/user/profile_screen.dart';
+import 'package:new_todo/presentation/screens/user/signup_screen.dart';
+import 'package:new_todo/presentation/styles/themes.dart';
+import 'package:new_todo/presentation/task_cubit/authentication/authenticationCubit.dart';
+import 'package:new_todo/presentation/task_cubit/image/imageCubit.dart';
+import 'package:new_todo/presentation/task_cubit/task/taskCubit.dart';
+
+import 'domain/models/task.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,7 @@ void main() async {
   await CacheHelper.init();
   AuthenticationCubit.refreshToken = CacheHelper.getData(key: 'refreshToken')??'';
   AuthenticationCubit.accessToken = CacheHelper.getData(key: 'accessToken')??'';
-  await AuthenticationCubit().checkAuth().timeout(Duration(seconds: 2),onTimeout: () {
+  await AuthenticationCubit().checkAuth().timeout(const Duration(seconds: 2),onTimeout: () {
     print('TIMEOUT---> Changing to offline');
     // AppCubit.isConnected = false;
   },);

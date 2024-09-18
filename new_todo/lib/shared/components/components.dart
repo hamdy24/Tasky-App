@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:new_todo/shared/cubits/task_cubit/image/imageCubit.dart';
-import 'package:new_todo/shared/cubits/task_cubit/image/image_state.dart';
-import 'package:new_todo/shared/cubits/task_cubit/task/taskCubit.dart';
-import 'package:new_todo/widgets/dropDownMenu.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 
-import '../../widgets/network_images_handler.dart';
+import '../../presentation/task_cubit/image/imageCubit.dart';
+import '../../presentation/task_cubit/task/taskCubit.dart';
+import '../../presentation/widgets/dropDownMenu.dart';
+import '../../presentation/widgets/network_images_handler.dart';
+
 
 Widget defaultButton({
   double? fontSize,

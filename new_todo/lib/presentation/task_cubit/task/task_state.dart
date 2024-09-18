@@ -1,5 +1,4 @@
-import 'package:equatable/equatable.dart';
-import '../../../../models/task.dart';
+
 
 abstract class TaskState { }
 
